@@ -9,13 +9,13 @@
   "actions":[
     {
       "name": "build",
-      "uses": "docker://golang:latest",
+      "uses": "docker://docker-registry.default.svc:5000/csnr-devops-lab-tools/ose-cli:v3.11",
       "runs": ["sh", "-c", "echo $GITHUB_SHA"]
     },
     {
       "name": "deploy2dev",
-      "uses": "docker://golang:latest",
-      "runs": ["sh", "-c", "echo $GITHUB_SHA"]
+      "uses": "docker://docker-registry.default.svc:5000/csnr-devops-lab-tools/ose-cli:v3.11",
+      "runs": ["sh", "-c", "oc whoami && oc version"]
     }
   ]
 }
