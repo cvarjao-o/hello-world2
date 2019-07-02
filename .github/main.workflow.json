@@ -1,0 +1,21 @@
+{
+  "workflows": [
+    {
+      "name": "CI",
+      "on": "push",
+      "resolves": ["build"]
+    }
+  ],
+  "actions":[
+    {
+      "name": "build",
+      "uses": "docker://golang:latest",
+      "runs": ["sh", "-c", "echo $GITHUB_SHA"]
+    },
+    {
+      "name": "deploy2dev",
+      "uses": "docker://golang:latest",
+      "runs": ["sh", "-c", "echo $GITHUB_SHA"]
+    }
+  ]
+}
