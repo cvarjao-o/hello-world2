@@ -4,7 +4,7 @@
   "on": ["pull_request:opened","pull_request:reopened", "pull_request:synchronize"],
   "jobs":{
     "build": {
-      "namespace": "csnr-devops-lab-tools"
+      "namespace": "csnr-devops-lab-tools",
       "steps":[
         {
           "uses": "docker://registry.access.redhat.com/openshift3/ose-cli:v3.11.129-1",
@@ -16,7 +16,7 @@
       "needs": ["build"],
       "steps":[
         {
-          "namespace": "csnr-devops-lab-tools"
+          "namespace": "csnr-devops-lab-tools",
           "uses": "docker://registry.access.redhat.com/openshift3/ose-cli:v3.11.129-1",
           "run": ["sh", "-c", "echo 'Building...'"]
         }
